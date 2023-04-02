@@ -1,28 +1,41 @@
 @extends('layouts.app')
+{{-- JUMBOTRON --}}
+@section('jumbotron')
+<div class="jumbotron-img">
+  <img src="{{asset('images/jumbotron.jpg')}}"/>
+</div>
+@endsection
+
 {{-- SEZIONE DELLE CARDS --}}
 @section('cards')
-<div class="container">
-  <div class="card-content">
+<div class="container cards-comics">
+  <div class="label-card"> 
+    <span>CURRENT SERIES</span>
+  </div>
+  <div class="card-content pt-5 pb-3">
     <div class="row row-cols-6">
        @forelse($comics as $comic)
             <div class="col">
-                <div class="my-card">
+                <div class="my-card mb-5">
                   <a href="{{ route('detail', ['index' => $loop->index]) }}">
-                    <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="">
+                    <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="comics image">
                   </a>
                     <div class="card-body">
-                      <p class="card-text">
+                      <span class="card-text">
                         {{ strtoupper($comic['series']) }}
-                      </p>
+                      </span>
                     </div>
                 </div>
             </div>
             @empty
             <div class="col-12">
               <h4>No Comics Found</h4>
-
             </div>
       @endforelse
+      
+    </div>
+    <div class="label-card-button"> 
+         <button type="button"> LOAD MORE</button>
 
     </div>
 
@@ -32,7 +45,6 @@
 @endsection
 
 {{-- SEZIONE DELLE ICONE NAV --}}
-
 @section('main_navbar')
 <div class="main-nav">
     <div class="container">
