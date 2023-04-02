@@ -7,3 +7,22 @@
 img {
     max-height: 150px;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    footer {
+        margin-top: auto;
+        min-height: 90px;
+        display: flex;
+        align-content: center;
+
+        div {
+            display: flex;
+            align-content: center;
+            height: 100%;
+        }
+    }
+}
