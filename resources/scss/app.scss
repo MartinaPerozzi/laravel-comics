@@ -26,3 +26,16 @@ body {
         }
     }
 }
+
+.main-nav{
+    background-color: #0282f9;
+
+    .icon-main-nav{
+        min-height:120px;
+        img{
+            max-width:80px;
+            max-height:60px;
+            object-fit: contain;
+        }
+    }
+}

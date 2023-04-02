@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  {{-- Includo la navbar come partial --}}
+  {{-- HEADER- Includo la navbar come partial --}}
   @include('partials._navbar')
     {{-- @dump($comics) <-- controllare se ricevo le informazioni dalla route--}}
 
@@ -20,12 +20,18 @@
 
     {{-- Con YIELD metto un segnaposto a cui do un titolo che mi servirà per estenderlo in altri file(vedi home)--}}
     <h1 class="text-center">@yield('title')</h1>
+
     <main>
       <section class="bg-dark">
-        @yield('main_content')
+        @yield('cards')
+      </section>
+
+      <section>
+        @yield('main_navbar')
       </section>
     </main>
 
+  {{-- FOOTER --}}
     @include('partials._footer')
 
 </body>
