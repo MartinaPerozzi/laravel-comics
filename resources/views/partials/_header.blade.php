@@ -9,7 +9,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         {{-- Dare la classe active quando sul link giusto --}}
-                        <a class="nav-link @if(Request::route()->getName() == 'comics') active @endif" aria-current="page" href="{{route('home')}}">CHARACTERS</a>
+                        <a class="nav-link @if(Request::route()->getName() == 'comics') active @endif" aria-current="page" href="{{route('comics')}}">CHARACTERS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if(Request::route()->getName() == 'comics') active @endif" href="{{route('comics')}}">COMICS</a>

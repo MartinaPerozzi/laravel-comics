@@ -24,15 +24,16 @@ Route::get('/', function () {
 Route::get('/comics', function () {
     // Mi prendo l'array di dati dalla cartella config
     $comics =  config('comicsdb.comics');
+    // testare l'errore-->$comics = [];
     $pagename = 'Comics';
-    // Mi ritorno la homepage e la variabile (contenente l'array di dati) con il compact
     return view('comics', compact('comics', 'pagename'));
 })->name('comics');
 
-Route::get('/detail', function () {
+Route::get('/detail/{index}', function ($index) {
     // Mi prendo l'array di dati dalla cartella config
     $comics =  config('comicsdb.comics');
-    $pagename = 'Comics';
-    // Mi ritorno la homepage e la variabile (contenente l'array di dati) con il compact
-    return view('detail', compact('comics', 'pagename'));
+    $comic = $comics[$index];
+    $book_key = $index;
+    // Metto con l'index uno dei comic nella variabile che mi creo
+    return view('detail', compact('comic', 'book_key'));
 })->name('detail');

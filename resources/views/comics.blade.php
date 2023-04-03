@@ -14,29 +14,24 @@
   </div>
   <div class="card-content pt-5 pb-3">
     <div class="row row-cols-6">
-       @forelse($comics as $comic)
+      {{-- Ciclo che genera l'indice del libro man mano --}}
+       @forelse($comics as $comic_key=> $comic)
             <div class="col">
-                <div class="my-card mb-5">
-                  <a href="{{ route('detail', ['index' => $loop->index]) }}">
-                    <img src="{{ $comic['thumb'] }}" class="card-img-top" alt="comics image">
-                  </a>
-                    <div class="card-body">
-                      <span class="card-text">
-                        {{ strtoupper($comic['series']) }}
-                      </span>
-                    </div>
-                </div>
+              {{-- Includo la card di volta in volta --}}
+             @include('partials._card_comic')
+
             </div>
             @empty
+            {{-- Se non trovi niente stampa "No comics found" --}}
             <div class="col-12">
-              <h4>No Comics Found</h4>
+              <h4 class="text-white">No Comics Found</h4>
             </div>
+            {{-- Fine del ciclo --}}
       @endforelse
       
     </div>
     <div class="label-card-button"> 
          <button type="button"> LOAD MORE</button>
-
     </div>
 
   </div>
