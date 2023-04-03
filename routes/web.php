@@ -33,7 +33,7 @@ Route::get('/detail/{index}', function ($index) {
     // Mi prendo l'array di dati dalla cartella config
     $comics =  config('comicsdb.comics');
     $comic = $comics[$index];
-    $book_key = $index;
-    // Metto con l'index uno dei comic nella variabile che mi creo
-    return view('detail', compact('comic', 'book_key'));
+    $comic_key = $index;
+    // Metto l'index (uno dei comic) nella variabile che mi creo
+    return view('detail', compact('comic', 'comic_key'));
 })->name('detail');
