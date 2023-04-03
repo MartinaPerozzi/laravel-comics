@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // Mi prendo l'array di dati dalla cartella config
-    $comics =  config('comicsdb.comics');
-    $pagename = 'Homepage';
-    // Mi ritorno la homepage e la variabile (contenente l'array di dati) con il compact
-    return view('homepage', compact('comics', 'pagename'));
-})->name('home');
+// Esempio di controller- 
+Route::get('/', [NomeController::class, 'homepage'])->name('home');
 
 Route::get('/comics', function () {
     // Mi prendo l'array di dati dalla cartella config
